@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdvancedLookup</class>
+ <widget class="QDialog" name="AdvancedLookup">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Monospace</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Plover: Suggestions</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QLabel" name="byTranslationLabel">
+       <property name="text">
+        <string>By translation</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPlainTextEdit" name="byTranslationText">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="inTranslationLabel">
+       <property name="text">
+        <string>In translation</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPlainTextEdit" name="inTranslationText">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="byStrokeLabel">
+       <property name="text">
+        <string>By stroke</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPlainTextEdit" name="byStrokeText">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPlainTextEdit" name="inStrokeText">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="inStrokeLabel">
+       <property name="text">
+        <string>In stroke</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="queryLabel">
+       <property name="text">
+        <string>Search by translation or steno:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QLineEdit" name="searchInput">
+       <property name="placeholderText">
+        <string>word or STEPB/TPHO</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="action_Clear">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/trash.svg</normaloff>:/trash.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear paper tape</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_ToggleOnTop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/pin.svg</normaloff>:/pin.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Toggle &quot;always on top&quot;</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle &quot;always on top&quot;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="action_SelectFont">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/font_selector.svg</normaloff>:/font_selector.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Select &amp;font</string>
+   </property>
+   <property name="toolTip">
+    <string>Open font selection dialog</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>searchInput</tabstop>
+  <tabstop>byTranslationText</tabstop>
+  <tabstop>byStrokeText</tabstop>
+  <tabstop>inTranslationText</tabstop>
+  <tabstop>inStrokeText</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Clear</sender>
+   <signal>triggered()</signal>
+   <receiver>AdvancedLookup</receiver>
+   <slot>on_clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_ToggleOnTop</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>AdvancedLookup</receiver>
+   <slot>on_toggle_ontop(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>123</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_SelectFont</sender>
+   <signal>triggered()</signal>
+   <receiver>AdvancedLookup</receiver>
+   <slot>on_select_font()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>123</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchInput</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>AdvancedLookup</receiver>
+   <slot>on_lookup(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>123</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_save()</slot>
+  <slot>on_clear()</slot>
+  <slot>on_style_changed()</slot>
+  <slot>on_toggle_ontop(bool)</slot>
+  <slot>on_select_font()</slot>
+ </slots>
+</ui>

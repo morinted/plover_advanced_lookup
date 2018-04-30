@@ -1,0 +1,5 @@
+# UI.
+exclude plover_advanced_lookup/*_rc.py
+exclude plover_advanced_lookup/*_ui.py
+include plover_advanced_lookup/*.ui
+recursive-include plover_advanced_lookup/resources *
